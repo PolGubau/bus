@@ -1,0 +1,41 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.1.4/schema.json",
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on",
+				"recommended": true,
+				"useSortedAttributes": "on",
+				"useSortedKeys": "on",
+				"useSortedProperties": "on"
+			}
+		},
+		"enabled": true
+	},
+	"files": {
+		"experimentalScannerIgnores": ["dist", "public", "node_modules", "coverage", "src/routeTree.gen.ts", "cypress"],
+		"ignoreUnknown": false,
+		"includes": ["src/*", ".vscode/*", "index.html", "vite.config.js"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"lineWidth": 120
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+	"vcs": {
+		"clientKind": "git",
+		"enabled": true,
+		"useIgnoreFile": true
+	}
+}
