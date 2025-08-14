@@ -12,11 +12,7 @@
 		},
 		"enabled": true
 	},
-	"files": {
-		"experimentalScannerIgnores": ["dist", "public", "node_modules", "coverage", "src/routeTree.gen.ts", "cypress"],
-		"ignoreUnknown": false,
-		"includes": ["src/*", ".vscode/*", "index.html", "vite.config.js"]
-	},
+
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
