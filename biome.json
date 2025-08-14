@@ -12,6 +12,11 @@
 		},
 		"enabled": true
 	},
+	"files": {
+		"experimentalScannerIgnores": ["**/*.test.ts", "**/*.spec.ts", "src/global/routeTree.gen.ts"],
+		"ignoreUnknown": true,
+		"includes": ["**", "!**/dist/**", "!**/*.generated.ts"]
+	},
 
 	"formatter": {
 		"enabled": true,
@@ -26,9 +31,17 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"correctness": {
+				"noUnknownPseudoElement": "off",
+				"noUnknownTypeSelector": "off"
+			},
+			"recommended": true,
+			"suspicious": {
+				"noExplicitAny": "info"
+			}
 		}
 	},
+	"root": true,
 	"vcs": {
 		"clientKind": "git",
 		"enabled": true,

@@ -2,9 +2,8 @@ import type { Bus } from "./buses";
 
 export const e112: Bus = {
 	color: "#0BBC90",
-	name: "E11.2",
 	from: "Mataró",
-	to: "Barcelona",
+	name: "E11.2",
 	stops: [
 		{
 			dayTypes: {
@@ -483,4 +482,5 @@ export const e112: Bus = {
 			name: "Ronda De La Universitat 25",
 		},
 	],
+	to: "Barcelona",
 };

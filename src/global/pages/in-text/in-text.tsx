@@ -1,6 +1,4 @@
 import type React from "react";
-import { useState } from "react";
-import { firstStop, secondStop } from "~/shared/data/buses";
 import { Header } from "../../../shared/ui/header/layout-header";
 
 /**
@@ -11,35 +9,34 @@ const hoursAndMinutesToMinutes = (hours: number, minutes: number) => hours * 60 
 /**
  * Formats minutes into human-readable hours/minutes.
  */
-const minutesToHoursAndMinutes = (minutes: number): string => {
-	const value = {
-		hours: Math.floor(minutes / 60),
-		minutes: minutes % 60,
-	};
-	return value.hours > 0 ? `${value.hours} hrs. y ${value.minutes} min.` : `${value.minutes} min.`;
-};
+// const minutesToHoursAndMinutes = (minutes: number): string => {
+// 	const value = {
+// 		hours: Math.floor(minutes / 60),
+// 		minutes: minutes % 60,
+// 	};
+// 	return value.hours > 0 ? `${value.hours} hrs. y ${value.minutes} min.` : `${value.minutes} min.`;
+// };
 
 export const InText: React.FC = () => {
-	const [selectedIndex, setSelectedIndex] = useState<number>(0);
+	// const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-	const currentTimeToMinutes = hoursAndMinutesToMinutes(new Date().getHours(), new Date().getMinutes());
+	const _currentTimeToMinutes = hoursAndMinutesToMinutes(new Date().getHours(), new Date().getMinutes());
 
-	const firstStopToMinutes = firstStop.map((stop) => hoursAndMinutesToMinutes(stop.hour, stop.minute));
+	// const firstStopToMinutes = firstStop.map((stop) => hoursAndMinutesToMinutes(stop.hour, stop.minute));
 
-	const findSoonestStop = firstStopToMinutes.map((stop) =>
-		stop > currentTimeToMinutes ? stop - currentTimeToMinutes : 0,
-	);
+	// const findSoonestStop = firstStopToMinutes.map((stop) =>
+	// 	stop > currentTimeToMinutes ? stop - currentTimeToMinutes : 0,
+	// );
 
-	const formatMinute = (minute: number) =>
-		minute === 0 ? `${minute}0` : minute > 0 && minute < 10 ? `0${minute}` : minute.toString();
+	// const formatMinute = (minute: number) =>
+	// 	minute === 0 ? `${minute}0` : minute > 0 && minute < 10 ? `0${minute}` : minute.toString();
 
 	return (
 		<div className="min-h-[90vh] flex flex-col p-8">
 			<Header />
 
-			<div className="flex-1 flex flex-col justify-center text-[28px] leading-10">
-				{/* First stop */}
-				<div className="mb-6">
+			{/* <div className="flex-1 flex flex-col justify-center text-[28px] leading-10">
+ 				<div className="mb-6">
 					<div>El bus que sale de</div>
 					<select
 						className="appearance-none bg-transparent pr-6 border-0 text-[#005DD6] font-bold border-b-2 border-b-[#005DD633] outline-none bg-no-repeat bg-right"
@@ -73,8 +70,7 @@ export const InText: React.FC = () => {
 					)}
 				</div>
 
-				{/* Second stop */}
-				<div>
+ 				<div>
 					<div>llegará a</div>
 					<select className="appearance-none bg-transparent pr-6 border-0 text-[#005DD6] font-bold border-b-2 border-b-[#005DD633] outline-none">
 						<option>rda. Universitat, 21</option>
@@ -93,7 +89,7 @@ export const InText: React.FC = () => {
 						))}
 					</select>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };

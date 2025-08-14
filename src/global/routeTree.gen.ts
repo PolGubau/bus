@@ -8,70 +8,68 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as InTextRouteImport } from './routes/in-text'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as InTextRouteImport } from "./routes/in-text";
+import { Route as IndexRouteImport } from "./routes/index";
 
 const InTextRoute = InTextRouteImport.update({
-  id: '/in-text',
-  path: '/in-text',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	getParentRoute: () => rootRouteImport,
+	id: "/in-text",
+	path: "/in-text",
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	getParentRoute: () => rootRouteImport,
+	id: "/",
+	path: "/",
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/in-text': typeof InTextRoute
+	"/": typeof IndexRoute;
+	"/in-text": typeof InTextRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/in-text': typeof InTextRoute
+	"/": typeof IndexRoute;
+	"/in-text": typeof InTextRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/in-text': typeof InTextRoute
+	__root__: typeof rootRouteImport;
+	"/": typeof IndexRoute;
+	"/in-text": typeof InTextRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/in-text'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/in-text'
-  id: '__root__' | '/' | '/in-text'
-  fileRoutesById: FileRoutesById
+	fileRoutesByFullPath: FileRoutesByFullPath;
+	fullPaths: "/" | "/in-text";
+	fileRoutesByTo: FileRoutesByTo;
+	to: "/" | "/in-text";
+	id: "__root__" | "/" | "/in-text";
+	fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  InTextRoute: typeof InTextRoute
+	IndexRoute: typeof IndexRoute;
+	InTextRoute: typeof InTextRoute;
 }
 
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/in-text': {
-      id: '/in-text'
-      path: '/in-text'
-      fullPath: '/in-text'
-      preLoaderRoute: typeof InTextRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-  }
+declare module "@tanstack/react-router" {
+	interface FileRoutesByPath {
+		"/in-text": {
+			id: "/in-text";
+			path: "/in-text";
+			fullPath: "/in-text";
+			preLoaderRoute: typeof InTextRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/": {
+			id: "/";
+			path: "/";
+			fullPath: "/";
+			preLoaderRoute: typeof IndexRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+	}
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  InTextRoute: InTextRoute,
-}
-export const routeTree = rootRouteImport
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+	IndexRoute: IndexRoute,
+	InTextRoute: InTextRoute,
+};
+export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>();
